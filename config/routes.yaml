@@ -1,0 +1,38 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+register:
+  path: /register
+  controller: App\Controller\RegisterController::indexAction
+
+
+post_new:
+  path: /new
+  controller: App\Controller\PostController::new
+
+post_index:
+  path: /
+  controller: App\Controller\PostController::index
+
+post_show:
+  path: /{id}
+  controller: App\Controller\PostController::show
+
+popular_post:
+  path: /popular/post
+  controller: App\Controller\PopularController::index
+
+post_edit:
+  path: /{id}/edit
+  controller: App\Controller\PostController::edit
+
+post_delete:
+  path: /{id}
+  controller: App\Controller\PostController::delete
+
+post_user:
+  path: /user/post
+  controller: App\Controller\PostUserController::index
+
+

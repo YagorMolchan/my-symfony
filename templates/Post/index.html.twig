@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>All posts</h1>
+    {% for post in posts %}
+        <a href="/{{ post.id }}">{{ post.title }}</a>
+        <p><strong>Author: <a href="{{ path('post_user') }}">{{ post.user.username }}</a></strong></p>
+        <p>Summary: {{ post.summary }}</p>
+        <img width="400" height="300" src="{{ asset('uploads/' ~ post.image) }}">
+        <p>{{ post.body }}</p>
+        <p><i>Created: {{ post.created|date('Y-m-d') }}</i></p>
+        <p>Likes: {{ post.loices|length }}</p>
+    {% endfor %}
+    <a href="{{ path('post_new') }}">Create new</a>
+   <div class="navigation text-center">
+       {{ knp_pagination_render(posts) }}
+   </div>
+
+{% endblock %}
+
+
+

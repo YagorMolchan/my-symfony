@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+{% block body %}
+    <h1>{{ post.title }}</h1>
+    <p><strong>Author: {{ post.user.username }}</strong></p>
+    <p>Summary: {{ post.summary }}</p>
+    <p>{{ post.body }}</p>
+    <p><i>Created: {{ post.created|date('Y-m-d') }}</i></p>
+    <p>Likes:  {{ loice_count }}</p>
+    <div class="like">
+        {{ form(like_form) }}
+        {{ include('Loice/submit.html.twig', {'form' : like_form}) }}
+    </div>
+    {#<p><i>Количество лайков: {{ like_count }}</i></p>#}
+    <!---<div class="like">
+            {#{{ include('Like/submit.html.twig') }}#}
+    </div>-->
+    <div class="field field-comments">
+        <div class="comment-preview">
+            <h2 class="comment-title">Comments</h2>
+            {{ form(comment_form) }}
+            <div class="list">
+                {% for item in post_comments %}
+                    <div class="list-item">
+                        {{ include('Comment/item.html.twig', {'item': item}) }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <a href="{{ path('post_index') }}">back to list</a>
+
+    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
+
+    {{ include('post/_delete_form.html.twig') }}
+{% endblock %}

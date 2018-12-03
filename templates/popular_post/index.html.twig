@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Popular posts</h1>
+{% for post in posts %}
+    {% if date(post.created) > date(date_filter) %}
+        <a href="/{{ post.id }}">{{ post.title }}</a>
+        <p>Summary: {{ post.summary }}</p>
+        <p>{{ post.body }}</p>
+        <img width="400" height="300" src="{{ asset('uploads/' ~ post.image) }}">
+        <p><i>Created: {{ post.created|date('Y-m-d') }}</i></p>
+        <p>Likes: {{ post.loices|length }}</p>
+    {% endif %}
+{% endfor %}
+    <a href="{{ path('post_index') }}">back to list</a>
+    <a href="{{ path('post_new') }}">Create new</a>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(posts) }}
+    </div>
+
+{% endblock %}
+
+
+

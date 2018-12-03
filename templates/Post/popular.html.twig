@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Popular posts{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Популярные посты в течение 7 дней</h1>
+
+    {{ include('index.html.twig') }}
+
+    <a href="{{ path('post_index') }}">back to list</a>
+{% endblock %}

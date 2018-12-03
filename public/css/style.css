@@ -1,0 +1,21 @@
+.form-signin{
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.col-sm-2 #title{
+    width: 600px;
+    height: 50px;
+}
+
+.col-sm-2 #summary{
+    width: 600px;
+    height: 100px;
+}
+
+
+.col-sm-2 #content{
+    width: 600px;
+    height: 200px;
+}
